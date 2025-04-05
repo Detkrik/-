@@ -102,8 +102,32 @@
             text-decoration: none;
             cursor: pointer;
         }
+         /* Стили для кнопки "Профиль" */
+        .profile-button {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #2196F3; /* Синий цвет */
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease; /* Плавное изменение цвета */
+        }
 
+        .profile-button:hover {
+            background-color: #0b7dda; /* Более темный синий цвет при наведении */
+            cursor: pointer; /* Изменяем курсор на руку */
+        }
 
+        /* Стили для модального окна профиля */
+        #profileModal .modal-content {
+            text-align: center; /* Центрируем текст */
+        }
+
+        #profileModal p {
+          font-size: 1.2em;
+          margin-bottom: 10px;
+        }
 
         main {
             display: flex;
@@ -192,6 +216,143 @@
             <li><a href="/world">Мировые новости</a></li>
             <li><a href="/economy">Экономика</a></li>
             <li><a href="#" class="upload-news-button" id="uploadNewsBtn">+</a></li>
+            <li><a href="#" class="profile-button" id="profileBtn">Профиль</a></li> 
+            margin: 15% auto; /* Центрируем по вертикали и горизонтали */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Ширина содержимого */
+            max-width: 600px; /* Максимальная ширина */
+        }
+
+        /* Стили для кнопки закрытия */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+         /* Стили для кнопки "Профиль" */
+        .profile-button {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #2196F3; /* Синий цвет */
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease; /* Плавное изменение цвета */
+        }
+
+        .profile-button:hover {
+            background-color: #0b7dda; /* Более темный синий цвет при наведении */
+            cursor: pointer; /* Изменяем курсор на руку */
+        }
+
+        /* Стили для модального окна профиля */
+        #profileModal .modal-content {
+            text-align: center; /* Центрируем текст */
+        }
+
+        #profileModal p {
+          font-size: 1.2em;
+          margin-bottom: 10px;
+        }
+
+        main {
+            display: flex;
+            padding: 20px;
+            flex: 1;
+        }
+
+        /* Стили для главной новости */
+        .main-news {
+            width: 40%;
+            margin-right: 20px;
+        }
+
+        .main-news-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        /* Стили для центрального блока */
+        .central-block {
+            width: 20%;
+            text-align: center;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 auto 10px;
+        }
+
+        /* Стили для популярных новостей */
+        .popular-news {
+            width: 40%;
+        }
+
+        .news-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .news-item img {
+            width: 50px;
+            height: 50px;
+            background-color: #ccc;
+            margin-right: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Стили для строки поиска */
+        .search-bar input[type="text"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white; /* Явное указание белого фона */
+            color: black; /* Явное указание черного цвета текста */
+            /* Дополнительные стили, чтобы убрать возможные артефакты */
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: none; /* Убираем фоновое изображение, если оно есть */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="search-bar">
+        <input type="text" placeholder="Поиск...">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="/">Главная</a></li>
+            <li><a href="/sport">Спорт</a></li>
+            <li><a href="/cryptocurrency">Криптовалюта</a></li>
+            <li><a href="/world">Мировые новости</a></li>
+            <li><a href="/economy">Экономика</a></li>
+            <li><a href="#" class="upload-news-button" id="uploadNewsBtn">+</a></li>
+            <li><a href="#" class="profile-button" id="profileBtn">Профиль</a></li> <!-- Кнопка "Профиль" -->
         </ul>
     </nav>
 </header>
@@ -226,7 +387,7 @@
             </li>
             <li>
                 <div class="news-item">
-					<img src="placeholder-thumbnail.jpg" alt="Превью новости">
+                    <img src="placeholder-thumbnail.jpg" alt="Превью новости">
                     <p>Заголовок популярной новости 2...</p>
                 </div>
             </li>
@@ -244,7 +405,7 @@
     <p>&copy; 2024 Мой новостной сайт</p>
 </footer>
 
-<!-- Всплывающее окно (Modal) -->
+<!-- Всплывающее окно (Modal) для добавления новостей -->
 <div id="uploadNewsModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
@@ -253,6 +414,17 @@
         </div>
     </div>
 </div>
+
+<!-- Модальное окно профиля -->
+<div id="profileModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Профиль пользователя</h2>
+        <p>Имя пользователя: <span id="profileName"></span></p>
+        <p>ID: <span id="profileId"></span></p>
+    </div>
+</div>
+
 
 <script>
     // Получаем элементы
@@ -295,6 +467,68 @@
             modal.style.display = "none";
         }
     }
+
+    // Получаем элементы профиля
+    var profileModal = document.getElementById("profileModal");
+    var profileBtn = document.getElementById("profileBtn");
+    var profileNameSpan = document.getElementById("profileName");
+    var profileIdSpan = document.getElementById("profileId");
+    var closeProfileSpan = profileModal.querySelector(".close");
+
+    // Функция для генерации случайного имени пользователя
+    function generateRandomName(length) {
+        var result           = '';
+        var characters       = 'abcdefghijklmnopqrstuvwxyz';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
+
+    // Функция для генерации случайного ID
+    function generateRandomId(length) {
+        var result           = '';
+        var characters       = '0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
+
+    // Генерируем имя и ID при загрузке страницы (или из localStorage, если есть)
+    var profileName = localStorage.getItem('profileName') || generateRandomName(3);
+    var profileId = localStorage.getItem('profileId') || generateRandomId(9);
+
+    // Сохраняем в localStorage
+    localStorage.setItem('profileName', profileName);
+    localStorage.setItem('profileId', profileId);
+
+    // Функция для отображения профиля
+    function showProfile() {
+        profileNameSpan.textContent = profileName;
+        profileIdSpan.textContent = profileId;
+        profileModal.style.display = "block";
+    }
+
+    // Когда пользователь кликает на кнопку "Профиль", показываем профиль
+    profileBtn.onclick = function() {
+        showProfile();
+    }
+
+    // Когда пользователь кликает на <span> (x) в профиле, закрываем модальное окно
+    closeProfileSpan.onclick = function() {
+        profileModal.style.display = "none";
+    }
+
+    // Когда пользователь кликает вне модального окна профиля, закрываем его
+    window.onclick = function(event) {
+        if (event.target == profileModal) {
+            profileModal.style.display = "none";
+        }
+    }
+
 </script>
 
 </body>
